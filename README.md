@@ -23,11 +23,10 @@ source ~/.bashrc
 ### 2. Install Python Dependencies
 
 ```bash
-/bin/python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
-
 
 ## 3. Start Ollama Server
 
@@ -35,7 +34,6 @@ Start the Ollama service:
 ```bash
 ollama serve
 ```
-
 
 ### 4. Pull Required Ollama Models
 
@@ -48,12 +46,12 @@ ollama pull nomic-embed-text
 
 ### 5. Run the RAG Script
 
-Script 1
+Script 1 ~ Not Working
 ```bash
 python ./OllamaAgent.py
 ```
 
-Script 2
+Script 2 ~ Working
 ```bash
 python ./RAG_LangChainMemory.py
 ```

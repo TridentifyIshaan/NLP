@@ -2,7 +2,7 @@ from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.chat_message_histories.in_memory import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_react_agent
 from langchain.tools import tool
 from langchain_core.tools import Tool
 
@@ -18,17 +18,16 @@ multiply_tool = Tool(
     description="Multiply two numbers separated by comma"
 )
 
-agent = create_react_agent(
-    model=llm,
-    tools=[multiply_tool],
-)
-
-# Create prompt for the REACT agent + memory
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant with strong reasoning ability."),
     MessagesPlaceholder("history"),     # <-- memory hook
     ("human", "{input}")
 ])
+
+agent = create_react_agent(
+    model=llm,
+    tools=[multiply_tool],
+)
 
 chain = prompt | agent
 

@@ -9,3 +9,5 @@ numpy
 pandas
 langgraph
 langchain-tools
+fastapi
+uvicorn
