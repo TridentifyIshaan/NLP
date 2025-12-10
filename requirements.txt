@@ -11,3 +11,4 @@ langgraph
 langchain-tools
 fastapi
 uvicorn
+pydantic
