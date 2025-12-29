@@ -16,7 +16,3 @@ motor
 python-dotenv
 streamlit
 python-multipart
-transformers
-torch
-librosa
-sentencepiece
